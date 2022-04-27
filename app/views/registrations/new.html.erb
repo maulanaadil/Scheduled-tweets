@@ -1,9 +1,17 @@
 <h1>Sign Up </h1>
 
-<%= form_with model: @user, url: sign_up_path do |form| %>
+<%= form_with model: @user, url: sign_up_path, local: true, data: { turbo: false } do |form| %>
+    <% if @user.errors.any? %>
+        <div class="alert alert-danger">
+            <% @user.errors.full_messages.each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+    <% end %>
+
     <div class="mb-3">
         <%= form.label :email, class: "form-label"%>
-        <%= form.text_field :email, class: "form-control", placeholder: "eca@gmail.com" %>
+        <%= form.text_field :email, class: "form-control", placeholder: "chris@gmail.com" %>
     </div>
     <div class="mb-3">
         <%= form.label :password, class: "form-label"%>
