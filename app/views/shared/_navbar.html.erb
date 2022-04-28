@@ -15,9 +15,26 @@
       </ul>
         <div class="d-flex align-items-center">
         <% if Current.user %>
-            <div class="text-reset me-3">
-              <%= Current.user.email %>
-            </div>
+          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+            <ul class="navbar-nav me-3">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <%= Current.user.email %>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                  <li>
+                    <%= link_to 'Change Password', edit_password_path, class: "dropdown-item"%>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Contoh bang</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Contoh bang</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
             <%= button_to 'Logout', logout_path, method: :delete ,class: "btn btn-outline-danger me-3" %>
         <% else %>
           <%= link_to 'SignUp', sign_up_path, class: "text-reset text-decoration-none me-3" %>
