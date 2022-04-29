@@ -2,4 +2,6 @@
     <h1>Welcome to Homepage</h1>
 </div>
 
-<%= button_to "Connect a Twitter account", "/auth/twitter", method: :post, data: {turbo: "false"}, class: "btn btn-primary" %>
+<% if Current.user %>
+     <%= button_to "Connect a Twitter account", "/auth/twitter", method: :post, data: {turbo: "false"}, class: "btn btn-primary" %>
+<% end %>
