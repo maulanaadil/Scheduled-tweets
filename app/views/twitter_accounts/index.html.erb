@@ -1,0 +1,24 @@
+<div class="d-flex align-items-center justify-content-between">
+    <h1>Twitter Accounts </h1>
+        <%= button_to "Connect a Twitter account", "/auth/twitter", method: :post, data: {turbo: "false"}, class: "btn btn-primary" %>
+</div>
+
+<% @twitter_accounts.each do |twitter_account| %>
+    <div class="d-flex align-items-center mb-4">
+        <div class="d-flex align-items-center mt-3">
+                <% if twitter_account.image === nil %>
+                    <%= image_tag "https://abs.twimg.com/sticky/default_profile_images/default_profile_200x200.png", class: "rounded-circle w-25 h-25 me-4" %>
+                <% else %>
+                    <%= image_tag twitter_account.image, class: "rounded-circle w-25 h-25 me-4" %>
+                <% end %>  
+
+                <% if twitter_account.name === nil %>
+                    <p class="my-0 me-3">The account doesn't have name</p>
+                <% else %>
+                    <p class="my-0 me-3"><%= twitter_account.name %></p>
+                <% end %> 
+        <%= button_to "Disconnect", twitter_account, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}}, class: "ms-2 btn btn-outline-danger" %>
+        </div>
+    </div>    
+<% end %>
+
