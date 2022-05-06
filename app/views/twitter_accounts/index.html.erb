@@ -1,6 +1,10 @@
 <div class="d-flex align-items-center justify-content-between">
     <h1>Twitter Accounts </h1>
+    <% if Current.user.twitter_accounts.any? %>
+        <%= button_to "Connect a Twitter account", "/auth/twitter", method: :post, data: {turbo: "false"}, class: "btn btn-primary disabled" %>
+    <% elsif !Current.user.twitter_accounts.any? %>
         <%= button_to "Connect a Twitter account", "/auth/twitter", method: :post, data: {turbo: "false"}, class: "btn btn-primary" %>
+    <% end %>
 </div>
 
 <% @twitter_accounts.each do |twitter_account| %>
