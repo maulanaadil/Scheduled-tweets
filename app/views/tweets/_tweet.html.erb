@@ -17,5 +17,6 @@
         <% else %> 
             <p>Scheduled for <%= l tweet.publish_at, format: :long   %></p>
         <% end %>       
+        <%= link_to "Edit Tweet", edit_tweet_path(tweet) %>
     </div>
 </div>
