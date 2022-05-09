@@ -1,7 +1,7 @@
 <div class="card mb-5 mt-3 shadow-sm bg-body rounded">
     <div class="card-body">
         <div class="mb-3">
-            <blockquote class="blockquote">
+            <blockquote class="blockquote mb-4">
                 <q class="fs-4 mb-4"><%= tweet.body %></q>
             </blockquote>
             <figcaption class="blockquote-footer d-flex align-items-center">
@@ -12,5 +12,10 @@
                 <% end %>
             </figcaption>
         </div>
+        <% if tweet.published? %>
+            <%= link_to "View Tweet", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}" %>
+        <% else %> 
+            <p>Scheduled for <%= l tweet.publish_at, format: :long   %></p>
+        <% end %>       
     </div>
 </div>
