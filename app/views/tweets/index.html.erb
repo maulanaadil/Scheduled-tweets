@@ -9,3 +9,5 @@
         <%= button_to "Connect a Twitter account", "/auth/twitter", method: :post, data: {turbo: "false"}, class: "btn btn-primary" %>
     <% end %>
 </div>
+
+<%= render @tweets%>

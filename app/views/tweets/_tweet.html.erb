@@ -1,0 +1,16 @@
+<div class="card mb-5 mt-3 shadow-sm bg-body rounded">
+    <div class="card-body">
+        <div class="mb-3">
+            <blockquote class="blockquote">
+                <q class="fs-4 mb-4"><%= tweet.body %></q>
+            </blockquote>
+            <figcaption class="blockquote-footer d-flex align-items-center">
+                <% if tweet.twitter_account.name === nil %>
+                    <p class="my-0">The account doesn't have name</p>
+                <% else %>
+                    <p class="my-0">@<%= tweet.twitter_account.name %></p>
+                <% end %>
+            </figcaption>
+        </div>
+    </div>
+</div>
