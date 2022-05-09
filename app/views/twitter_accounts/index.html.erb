@@ -21,6 +21,7 @@
                 <% else %>
                     <p class="my-0 me-3"><%= twitter_account.name %></p>
                 <% end %> 
+
         <%= button_to "Disconnect", twitter_account, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}}, class: "ms-2 btn btn-outline-danger" %>
         </div>
     </div>    
